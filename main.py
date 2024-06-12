@@ -1,10 +1,11 @@
 import os
+from abc import ABC
+
 from src.HHAPI import HHAPI
 from src.jsonsaver import JSONSaver
 from src.utils import filter_vacancies, sort_vacancies, get_vacancies_by_salary_range, \
     get_top_vacancies
 from src.vacancy import Vacancy
-
 
 from config import ROOT_DIR
 
@@ -32,7 +33,7 @@ def main():
 
     sorted_vacancies = sort_vacancies(get_by_sal_range)
     top_vacancies = get_top_vacancies(sorted_vacancies, top_n)
-    #print_vacancies(filtered_vacancies) вот здесь была проблема  это печать всех вакансий
+    # print_vacancies(filtered_vacancies) вот здесь была проблема  это печать всех вакансий
     for vacancy in top_vacancies:
         print(vacancy)
     # json_saver_inst.save_filtred_vacancices(top_vacancies)

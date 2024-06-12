@@ -1,7 +1,15 @@
+from abc import ABC, abstractmethod
+
 import requests
 
 
-class HHAPI:
+class API(ABC):
+    @abstractmethod
+    def get_vacancies(self, query):
+        pass
+
+
+class HHAPI():
     """
     Класс для работы с API HeadHunter
     Класс Parser является родительским классом, который вам необходимо реализовать

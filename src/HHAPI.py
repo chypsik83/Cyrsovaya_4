@@ -18,7 +18,7 @@ class HHAPI(API):
         self.params = {'text': '', 'page': 0, 'per_page': 100}
         self.vacancies = []
 
-    def load_vacancies(self, keyword):
+    def get_vacancies(self, keyword):
         """
         Метод отправки запроса и получения данных из API HeadHunter
                 """

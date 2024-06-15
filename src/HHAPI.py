@@ -4,17 +4,14 @@ import requests
 
 
 class API(ABC):
+    """Абстрактный класс для получения API с сайта"""
+
     @abstractmethod
     def get_vacancies(self, query):
+        """Абстрактный метод для получения API с сайта и преобразования его в json-объекта"""
         pass
-
-
-class HHAPI():
-    """
-    Класс для работы с API HeadHunter
-    Класс Parser является родительским классом, который вам необходимо реализовать
-    """
-
+class HHAPI(API):
+    """Класс для получения API с сайта по указанной вакансии """
     def __init__(self):
         self.url = 'https://api.hh.ru/vacancies'
         self.headers = {'User-Agent': 'HH-User-Agent'}
@@ -22,6 +19,9 @@ class HHAPI():
         self.vacancies = []
 
     def load_vacancies(self, keyword):
+        """
+        Метод отправки запроса и получения данных из API HeadHunter
+                """
         self.params['text'] = keyword
         while self.params.get('page') != 2:
             response = requests.get(self.url, headers=self.headers, params=self.params)

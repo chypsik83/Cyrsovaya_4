@@ -1,4 +1,5 @@
 class Vacancy:
+    """Класс для работы с вакансиями"""
     def __init__(self, name, link, salary, responsibility, requirement, vacancy_id):
         self.name = name
         self.link = link
@@ -9,6 +10,7 @@ class Vacancy:
 
     @classmethod
     def cast_to_object_list(cls, json_vacancies):
+        """Метод добавления вакансий в список"""
         object_list = []
         for vacancy in json_vacancies:
             name = vacancy.get("name")
@@ -27,12 +29,13 @@ class Vacancy:
         return object_list
 
     def __str__(self):
+        """Метод вывода информации по вакансиям"""
+
         return (f"Название вакансии: {self.name} \n"
                 f"Заработная плата: {self.salary} \n"
                 f"Описание: {self.responsibility} \n"
                 f"Ссылка: {self.link} \n"
                 f"ID: {self.vacancy_id} \n")
-
 
     @staticmethod
     def validate__str(value):
